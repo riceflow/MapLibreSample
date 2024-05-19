@@ -17,8 +17,18 @@
             pitch: 30 // 傾き
         });
 
-        // マーカーの作成
-        var marker = new maplibregl.Marker().setLngLat([135.4111, 34.6381]).addTo(map);
+        // アイコンの設定
+        var icon = document.createElement('div');
+        icon.innerHTML = "<img src='../img/train.png' style='width: 32px'>";
+
+            // ポップアップの設定
+            var popup = new maplibregl.Popup({
+                offset: 25, // ポップアップの位置
+            closeButton: false, // 閉じるボタンの表示
+        }).setText('大阪南港ATCビル ITM棟');
+
+            // マーカーの作成
+            var marker = new maplibregl.Marker({element:icon}).setLngLat([135.4111, 34.6381]).setPopup(popup).addTo(map);
 
     </script>
 </body>
